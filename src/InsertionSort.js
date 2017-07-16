@@ -25,7 +25,6 @@ class InsertionSort extends Component {
       this.setState({cursor: this.state.sortedIndex + 1, sortedIndex: this.state.sortedIndex + 1})
     }
 
-    console.debug(`cursor: ${this.state.cursor}`);
     if(this.state.cursor === 0) {
       this.setState({cursor: this.state.sortedIndex + 1, sortedIndex: this.state.sortedIndex + 1})
     } else {
@@ -37,12 +36,13 @@ class InsertionSort extends Component {
   render() {
     return (
       <div className="Sort InsertionSort">
+        <h2>InsertionnSort</h2>
         <dl className="BarChart">
           {this.state.array.map((x, i) => {
             return <dd className={classNames('Bar', {current: i === this.state.cursor})} key={i} style={{height: x * 10}} />;
           })}
         </dl>
-        <p>{this.state.step}</p>
+        <p>Step: {this.state.step}</p>
       </div>
     );
   }
