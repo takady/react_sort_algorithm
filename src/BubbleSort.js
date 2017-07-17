@@ -1,36 +1,52 @@
-import classNames from 'classnames';
+import _ from 'lodash';
 import React, { Component } from 'react';
 import './App.css';
 
 class BubbleSort extends Component {
   constructor(props) {
     super(props);
-    this.state = {cursor: props.defaultArray.length, sortedIndex: 0, step: 0, array: props.defaultArray};
+    this.state = {step: 0, array: props.defaultArray};
+    this.renderQueue = [];
+    this.running = false;
+  }
+
+  processRenderQueue() {
+    if (this.renderQueue.length > 0) {
+      let array = this.renderQueue.shift();
+      this.setState({step: this.state.step + 1, array: array});
+      this.running = true;
+    } else {
+      this.running = false;
+    }
   }
 
   componentDidMount() {
-    setInterval(() => {this.sort(this.state.array)}, 70);
+    this.sort(this.state.array, (array) => {
+      let cloned = _.clone(array);
+      this.renderQueue.push(cloned);
+
+      if (!this.running) {
+        this.processRenderQueue();
+      }
+    });
   }
 
-  sort(array) {
-    if(this.state.sortedIndex >= this.state.array.length)
-      return;
+  componentDidUpdate() {
+    _.delay(this.processRenderQueue.bind(this), 30);
+  }
 
-    if(this.state.cursor > this.state.sortedIndex) {
-      if(array[this.state.cursor - 1] > array[this.state.cursor]) {
-        const swap = array[this.state.cursor - 1];
-        array[this.state.cursor - 1] = array[this.state.cursor];
-        array[this.state.cursor] = swap;
-      }
+  sort(array, callback) {
+    for(let i = 0; i < array.length - 1; i++) {
+      for(let j = array.length - 1; j > i; j--) {
+        if(array[j - 1] > array[j]) {
+          const swap = array[j - 1];
+          array[j - 1] = array[j];
+          array[j] = swap;
 
-      if(this.state.cursor - 1 === this.state.sortedIndex) {
-        this.setState({cursor: this.state.array.length, sortedIndex: this.state.sortedIndex + 1});
-      } else {
-        this.setState({cursor: this.state.cursor - 1, array: array});
+          callback(array);
+        }
       }
     }
-
-    this.setState({step: this.state.step + 1});
   }
 
   render() {
@@ -39,7 +55,7 @@ class BubbleSort extends Component {
         <h2>BubbleSort</h2>
         <dl className="BarChart">
           {this.state.array.map((x, i) => {
-            return <dd className={classNames('Bar', {current: i === this.state.cursor})} key={i} style={{height: x * 10}} />;
+            return <dd className="Bar" key={i} style={{height: x * 10}} />;
           })}
         </dl>
         <p>Step: {this.state.step}</p>
