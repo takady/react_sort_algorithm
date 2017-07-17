@@ -20,14 +20,10 @@ class App extends Component {
                 <BubbleSort defaultArray={[8, 20, 19, 14, 13, 6, 9, 5, 7, 16, 2, 4, 3, 10, 1, 17, 11, 18, 15, 12]} />
               </td>
               <td>
-                {
-                  <SelectionSort defaultArray={[8, 20, 19, 14, 13, 6, 9, 5, 7, 16, 2, 4, 3, 10, 1, 17, 11, 18, 15, 12]} />
-                }
+                <SelectionSort defaultArray={[8, 20, 19, 14, 13, 6, 9, 5, 7, 16, 2, 4, 3, 10, 1, 17, 11, 18, 15, 12]} />
               </td>
               <td>
-                {
-                  // <InsertionSort defaultArray={[8, 20, 19, 14, 13, 6, 9, 5, 7, 16, 2, 4, 3, 10, 1, 17, 11, 18, 15, 12]} />
-                }
+                <InsertionSort defaultArray={[8, 20, 19, 14, 13, 6, 9, 5, 7, 16, 2, 4, 3, 10, 1, 17, 11, 18, 15, 12]} />
               </td>
             </tr>
           </tbody>
