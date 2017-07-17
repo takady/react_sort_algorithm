@@ -36,7 +36,7 @@ class InsertionSort extends Component {
   render() {
     return (
       <div className="Sort InsertionSort">
-        <h2>InsertionnSort</h2>
+        <h2>InsertionSort</h2>
         <dl className="BarChart">
           {this.state.array.map((x, i) => {
             return <dd className={classNames('Bar', {current: i === this.state.cursor})} key={i} style={{height: x * 10}} />;
