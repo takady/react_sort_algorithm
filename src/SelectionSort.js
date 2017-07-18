@@ -55,7 +55,7 @@ class SelectionSort extends Component {
   render() {
     return (
       <div className="Sort SelectionSort">
-        <h2>Selection</h2>
+        <h2>SelectionSort</h2>
         <dl className="BarChart">
           {this.state.array.map((x, i) => {
             return <dd className="Bar" key={i} style={{height: x * 10}} />;
