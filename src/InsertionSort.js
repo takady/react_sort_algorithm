@@ -37,7 +37,7 @@ class InsertionSort extends Component {
 
   sort(array, callback) {
     for(let i = 1; i < array.length; i++) {
-      let swap = array[i];
+      const swap = array[i];
       for(let j = i; j > 0; j--) {
         if(array[j - 1] > swap) {
           array[j] = array[j - 1];
