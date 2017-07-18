@@ -4,6 +4,7 @@ import './App.css';
 import BubbleSort from './BubbleSort';
 import InsertionSort from './InsertionSort';
 import SelectionSort from './SelectionSort';
+import QuickSort from './QuickSort';
 
 class App extends Component {
   render() {
@@ -24,6 +25,15 @@ class App extends Component {
               </td>
               <td>
                 <InsertionSort defaultArray={[8, 20, 19, 14, 13, 6, 9, 5, 7, 16, 2, 4, 3, 10, 1, 17, 11, 18, 15, 12]} />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <QuickSort defaultArray={[8, 20, 19, 14, 13, 6, 9, 5, 7, 16, 2, 4, 3, 10, 1, 17, 11, 18, 15, 12]} />
+              </td>
+              <td>
+              </td>
+              <td>
               </td>
             </tr>
           </tbody>
