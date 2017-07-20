@@ -23,17 +23,13 @@ class App extends Component {
               <td>
                 <SelectionSort defaultArray={[8, 20, 19, 14, 13, 6, 9, 5, 7, 16, 2, 4, 3, 10, 1, 17, 11, 18, 15, 12]} />
               </td>
-              <td>
-                <InsertionSort defaultArray={[8, 20, 19, 14, 13, 6, 9, 5, 7, 16, 2, 4, 3, 10, 1, 17, 11, 18, 15, 12]} />
-              </td>
             </tr>
             <tr>
               <td>
+                <InsertionSort defaultArray={[8, 20, 19, 14, 13, 6, 9, 5, 7, 16, 2, 4, 3, 10, 1, 17, 11, 18, 15, 12]} />
+              </td>
+              <td>
                 <QuickSort defaultArray={[8, 20, 19, 14, 13, 6, 9, 5, 7, 16, 2, 4, 3, 10, 1, 17, 11, 18, 15, 12]} />
-              </td>
-              <td>
-              </td>
-              <td>
               </td>
             </tr>
           </tbody>
